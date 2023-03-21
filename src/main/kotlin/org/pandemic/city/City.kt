@@ -1,16 +1,12 @@
 package org.pandemic.city
 
-data class City(val name: CityName, val infectionLevel: Int) {
-    init {
-        require(infectionLevel >= 0)
-        require(infectionLevel <= 3)
-    }
+data class City(val name: CityName, val infectionLevel: InfectionLevel) {
 
     fun infect(): InfectionStatus {
-        return if(infectionLevel < 3) {
-            Infected(City(name, infectionLevel + 1))
-        } else {
+        return if (infectionLevel.isMaximum()) {
             Outbreak(name)
+        } else {
+            Infected(City(name, infectionLevel.increase()))
         }
     }
 

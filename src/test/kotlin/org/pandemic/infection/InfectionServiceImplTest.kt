@@ -78,7 +78,7 @@ internal class InfectionServiceImplTest {
     }
 
     private fun infected(cityName: String, expectedInfectionLevel: Int): InfectionStatus {
-        return Infected(City(CityName(cityName), expectedInfectionLevel))
+        return Infected(city(cityName, expectedInfectionLevel))
     }
 
     private fun when_we_infect(cityName: String): List<InfectionStatus> {
@@ -90,7 +90,7 @@ internal class InfectionServiceImplTest {
     }
 
     private fun given_city(cityName: String, initialInfectionLevel: Int) {
-        cities = cities + City(CityName(cityName), initialInfectionLevel)
+        cities = cities + city(cityName, initialInfectionLevel)
     }
 
 }

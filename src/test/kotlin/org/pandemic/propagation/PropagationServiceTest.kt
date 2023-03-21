@@ -44,7 +44,7 @@ internal class PropagationServiceTest {
     }
 
     private fun and_neigbour(cityName: String) {
-        expectedResult = expectedResult + Infected(City(CityName(cityName), 1))
+        expectedResult = expectedResult + Infected(city(cityName, 1))
     }
 
     private fun then_we_increase_outbreak_counter() {
@@ -58,7 +58,7 @@ internal class PropagationServiceTest {
 
 
     private fun then_we_have_infected(cityName: String, expectedInfectionLevel: Int) {
-        verify { infectionLevels.save(City(CityName(cityName), expectedInfectionLevel)) }
+        verify { infectionLevels.save(city(cityName, expectedInfectionLevel)) }
     }
 
     private fun when_we_propagate_infection_to(cityName: String) {
@@ -69,6 +69,6 @@ internal class PropagationServiceTest {
     }
 
     private fun given_a_city_without_infection(cityName: String) {
-        expectedResult = expectedResult + Infected(City(CityName(cityName), 1))
+        expectedResult = expectedResult + Infected(city(cityName, 1))
     }
 }
