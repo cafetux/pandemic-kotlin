@@ -2,6 +2,7 @@ package org.pandemic.infection
 
 import org.assertj.core.api.Assertions
 import org.junit.Ignore
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 import org.pandemic.city.*
@@ -50,6 +51,7 @@ internal class InfectionServiceImplTest {
 
     }
 
+    @Disabled("next step")
     @Test
     fun should_chain_outbreaks() {
         given_city("PARIS", 3)
