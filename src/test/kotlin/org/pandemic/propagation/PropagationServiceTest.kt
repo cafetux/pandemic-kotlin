@@ -6,11 +6,12 @@ import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.Test
 import org.pandemic.city.*
+import org.pandemic.infection.InfectionService
 
 internal class PropagationServiceTest {
 
 
-    private val infectionLevels: InfectionLevels = mockk<InfectionLevels>()
+    private val infectionLevels: Cities = mockk<Cities>()
     private val infectionService: InfectionService = mockk<InfectionService>()
     private val outbreakIndicator: OutbreakIndicator = mockk<OutbreakIndicator>()
 
@@ -62,7 +63,8 @@ internal class PropagationServiceTest {
 
     private fun when_we_propagate_infection_to(cityName: String) {
         justRun { infectionLevels.save(any()) }
-        every { infectionService.infect(CityName(cityName)) } returns expectedResult
+        every { infectionLevels.all() } returns emptyList()
+        every { infectionService.infect(CityName(cityName), any()) } returns expectedResult
         service.propagate(InfectionCard(CityName(cityName)))
     }
 

@@ -2,8 +2,10 @@ package org.pandemic.propagation
 
 import org.pandemic.city.City
 
-interface InfectionLevels {
+interface Cities {
 
     fun save(city : City)
+
+    fun all() : List<City>
 
 }
