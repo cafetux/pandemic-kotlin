@@ -1,6 +1,7 @@
 package org.pandemic.infection
 
 import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.Ignore
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
@@ -26,7 +27,7 @@ internal class InfectionServiceImplTest {
 
         val result = when_we_infect("PARIS")
 
-        Assertions.assertThat(result).containsExactly(infected("PARIS", 3));
+        assertThat(result).containsExactly(infected("PARIS", 3));
 
     }
 
@@ -43,7 +44,7 @@ internal class InfectionServiceImplTest {
 
         val result = when_we_infect("PARIS")
 
-        Assertions.assertThat(result).containsExactlyInAnyOrder(
+        assertThat(result).containsExactlyInAnyOrder(
             infected("ESSEN", 2),
             infected("MADRID", 1),
             outbreak("PARIS")
@@ -66,7 +67,7 @@ internal class InfectionServiceImplTest {
 
         val result = when_we_infect("PARIS")
 
-        Assertions.assertThat(result).containsExactlyInAnyOrder(
+        assertThat(result).containsExactlyInAnyOrder(
             infected("MADRID", 2),
             infected("ST-PETERSBOURG", 1),
             outbreak("PARIS"),
