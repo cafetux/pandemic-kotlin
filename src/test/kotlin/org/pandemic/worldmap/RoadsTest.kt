@@ -14,7 +14,7 @@ internal class RoadsTest {
                 road("PARIS", "LONDRES"),
                 road("PARIS", "MILAN"),
                 road("PARIS", "MADRID"),
-                road("PARIS", "ALGERS"),
+                road("PARIS", "ALGER"),
                 road("ESSEN", "PARIS"),
                 road("ESSEN", "ST-PETERSBOURG"),
                 road("NEW-YORK", "LONDRES")
@@ -23,7 +23,7 @@ internal class RoadsTest {
         assertThat(worldMap.getNeighboursOf(CityName("PARIS")))
             .containsExactlyInAnyOrder(
                 CityName("LONDRES"),
-                CityName("ALGERS"),
+                CityName("ALGER"),
                 CityName("ESSEN"),
                 CityName("MILAN"),
                 CityName("MADRID")

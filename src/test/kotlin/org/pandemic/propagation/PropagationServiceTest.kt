@@ -24,7 +24,7 @@ internal class PropagationServiceTest {
 
         given_a_city_without_infection("PARIS")
 
-        when_we_propagate_infection_to("PARIS")
+        when_we_draw_infection_card_of("PARIS")
 
         then_we_have_infected("PARIS", 1)
     }
@@ -36,7 +36,7 @@ internal class PropagationServiceTest {
         and_neigbour("MADRID")
         and_neigbour("LONDRES")
 
-        when_we_propagate_infection_to("PARIS")
+        when_we_draw_infection_card_of("PARIS")
 
         then_we_increase_outbreak_counter()
         then_we_have_infected("MADRID", 1)
@@ -61,7 +61,7 @@ internal class PropagationServiceTest {
         verify { infectionLevels.save(city(cityName, expectedInfectionLevel)) }
     }
 
-    private fun when_we_propagate_infection_to(cityName: String) {
+    private fun when_we_draw_infection_card_of(cityName: String) {
         justRun { infectionLevels.save(any()) }
         every { infectionLevels.all() } returns emptyList()
         every { infectionService.infect(CityName(cityName), any()) } returns expectedResult
